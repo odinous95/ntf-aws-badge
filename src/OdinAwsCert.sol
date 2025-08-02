@@ -1,9 +1,9 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract AwsCert is ERC721 {
+contract CertNFT is ERC721 {
     uint256 private s_tokenIdCounter;
     mapping(uint256 tokenId => string tokenUri) private tokenIdToUri;
 
