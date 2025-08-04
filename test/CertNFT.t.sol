@@ -3,11 +3,15 @@ pragma solidity ^0.8.13;
 
 import {Test} from "forge-std/Test.sol";
 import {CertNFT} from "../src/OdinAwsCert.sol";
-import {DeployContract} from "../script/DepolyContract.s.sol";
+import {DeployContract} from "../script/DeployContract.s.sol";
 
 contract CertNFTTest is Test {
     DeployContract public deployerCertNFT;
     CertNFT public certNFT;
+    address public USER = makeAddr("user");
+
+    string public constant TOKEN_URI =
+        "https://ipfs.io/ipfs/bafkreia3ubfxks6yjj3jet73lxkzhrbcsgg62pwb4zrarqgzarjvfvmhei";
 
     function setUp() public {
         deployerCertNFT = new DeployContract();
@@ -20,17 +24,10 @@ contract CertNFTTest is Test {
         assertEq(actualName, expectedName);
     }
 
-    // function testMintCertNft() public {
-    //     string memory tokenURI = "https://example.com/token/1";
-    //     certNFT.mintCertNft(tokenURI);
-
-    //     uint256 tokenId = 0; // First token ID
-    //     assertEq(certNFT.tokenURI(tokenId), tokenURI);
-    //     assertEq(certNFT.ownerOf(tokenId), address(this));
-    // }
-
-    // function testTokenURIRevertsForNonExistentToken() public {
-    //     vm.expectRevert("Token does not exist");
-    //     certNFT.tokenURI(1); // Token ID 1 does not exist
-    // }
+    function testCanMintAndHaveBalance() public {
+        vm.prank(USER);
+        certNFT.mintCertNft(TOKEN_URI);
+        assertEq(certNFT.balanceOf(USER), 1, "User should have a balance of 1 after minting");
+        assertEq(certNFT.tokenURI(0), TOKEN_URI, "Token URI should match the provided URI");
+    }
 }
