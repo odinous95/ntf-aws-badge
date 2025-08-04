@@ -4,6 +4,14 @@ pragma solidity ^0.8.13;
 import {Test} from "forge-std/Test.sol";
 import {CertNFT} from "../src/OdinAwsCert.sol";
 import {DeployContract} from "../script/DeployContract.s.sol";
+/**
+ * @title CertNFTTest
+ * @dev A test contract for the CertNFT contract.
+ * This contract tests the basic functionality of the CertNFT contract,
+ * including minting NFTs and checking balances.
+ * This is useful for ensuring that the CertNFT contract behaves as expected
+ * and that the minting process works correctly.
+ */
 
 contract CertNFTTest is Test {
     DeployContract public deployerCertNFT;

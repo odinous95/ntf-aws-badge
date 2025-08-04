@@ -3,6 +3,12 @@ pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
+/**
+ * @title CertNFT
+ * @dev A simple ERC721 contract for minting NFTs with a token URI.
+ * This contract allows anyone to mint a new NFT by providing a token URI.
+ * The token ID is automatically incremented for each new mint.
+ */
 contract CertNFT is ERC721 {
     uint256 private s_tokenIdCounter;
     mapping(uint256 tokenId => string tokenUri) private tokenIdToUri;
