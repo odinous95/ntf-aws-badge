@@ -16,7 +16,7 @@ contract MintCertNFT is Script {
 
     function run() external {
         // Retrieve the most recently deployed CertNFT contract address using DevOpsTools
-        address mostRecentlyDeployedBasicNft = 0x4056f91014D29F862A8F78D977e430B89BcC84c8;
+        address mostRecentlyDeployedBasicNft = 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9;
         mintNftOnContract(mostRecentlyDeployedBasicNft);
     }
 
