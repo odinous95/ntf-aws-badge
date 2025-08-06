@@ -26,6 +26,12 @@ contract CertNFTTest is Test {
         certNFT = deployerCertNFT.run();
     }
 
+    function testTokenURI() public view {
+        string memory expectedUri = "https://ipfs.io/ipfs/bafkreia3ubfxks6yjj3jet73lxkzhrbcsgg62pwb4zrarqgzarjvfvmhei";
+        string memory actualUri = certNFT.tokenURI(0);
+        assertEq(actualUri, expectedUri, "Token URI should match the expected URI");
+    }
+
     function testNameIsCorrect() public view {
         string memory expectedName = "CERTI";
         string memory actualName = certNFT.name();

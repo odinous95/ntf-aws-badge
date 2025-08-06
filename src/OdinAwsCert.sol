@@ -16,6 +16,7 @@ contract CertNFT is ERC721 {
     constructor() ERC721("CERTI", "ODINAWSCERT") {
         s_tokenIdCounter = 0;
     }
+
     /**
      * @dev Mints a new NFT with the given token URI.
      * This function allows anyone to mint a new NFT by providing a token URI.
@@ -26,7 +27,6 @@ contract CertNFT is ERC721 {
      * ensure that the minting process is safe and compliant with the ERC721 standard.
      * @param newTokenURI The URI for the new token.
      */
-
     function mintCertNft(string memory newTokenURI) public {
         // take the uri and store it in the mapping | we stored the tokenURI in the mapping
         tokenIdToUri[s_tokenIdCounter] = newTokenURI;
